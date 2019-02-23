@@ -29,7 +29,7 @@ class Alert extends Component {
     );
 
     this.setState({
-      alert: getAlert()
+      alert: getAlert() // Fires up the dialog box
     });
   }
 
