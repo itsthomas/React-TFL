@@ -76,6 +76,8 @@ class App extends Component {
     const URL = "https://api.tfl.gov.uk/Journey/JourneyResults/";
     const APP_ID = "fc4aaf49";
 
+    // Note: API key is saved in .env and .envdevelopment
+
     const APP_KEY = process.env.REACT_APP_TFL_API_KEY
       ? process.env.REACT_APP_TFL_API_KEY
       : this.state.api_key;
