@@ -152,7 +152,7 @@ class App extends Component {
           isLoading: false,
           showResult: true,
           error:
-            "Please make sure that you entered a valid API Key from TFL. Please reload the page and try again."
+            "Please make sure that you enter a valid API Key from TFL. Please reload the page and try again."
         });
       }
       console.log("Error Config", err.config);
@@ -160,7 +160,7 @@ class App extends Component {
         isLoading: false,
         showResult: true,
         error:
-          "Please make sure that you entered a valid API Key from TFL. Please reload the page and try again."
+          "Please make sure that you enter a valid API Key from TFL. Please reload the page and try again."
       });
     }
   };
