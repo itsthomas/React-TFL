@@ -1,0 +1,216 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+.container-fluid {
+  background-color: #181510;
+  font-size: 14px;
+
+  .header {
+    height: 75px;
+    text-align: center;
+    padding: 12px 10px 10px 10px;
+    background-color: #22475c;
+    margin: 0 -15px;
+
+    h1 {
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1.6;
+
+      @include media-breakpoint-up(md) {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .form-container {
+    height: auto;
+    padding: 0 30px;
+    background-color: #181510;
+    color: #fff;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 15px;
+
+    @include media-breakpoint-up(md) {
+      height: calc(100vh - 75px);
+      margin-bottom: 0;
+    }
+
+    form {
+      select,
+      input {
+        font-size: 14px;
+
+        ::placeholder {
+          font-size: 14px;
+        }
+      }
+
+      .date-picker {
+        width: 165px;
+        border-radius: 6px;
+        padding: 3px;
+      }
+
+      .btn {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .result-container {
+    height: calc(100vh - 75px);
+    background: url("./images/london.jpg");
+    background-size: cover;
+    background-position: -400px 0;
+    overflow-y: scroll;
+
+    @include media-breakpoint-up(sm) {
+      background-position: 0 0;
+    }
+
+    .loader-container {
+      margin-top: 20%;
+      height: 30vh;
+      background: url("./images/orange_load.gif");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .result {
+      width: 100%;
+      margin: 20px auto;
+
+      @include media-breakpoint-up(md) {
+        width: 50%;
+        margin: 20px;
+      }
+
+      .step {
+        padding: 5px;
+
+        .journey-header {
+          border: 2px solid #ccc;
+          padding: 10px;
+        }
+
+        h6 {
+          margin: 20px -15px 10px -15px;
+        }
+      }
+
+      .instruction {
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: 10px;
+
+        .instruction-title {
+          font-weight: bold;
+        }
+
+        .minutes {
+          color: orangered;
+          padding-left: 10px;
+        }
+      }
+
+      .error-container {
+        padding: 13px 18px 16px;
+        border-radius: 12px;
+        background-color: rgba(255, 0, 0, 0.1);
+        color: red;
+        font-weight: bold;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+.sweetalert {
+  h2 {
+    font-size: 1.6rem;
+    color: #000;
+  }
+  .text-muted {
+    margin: 18px 0 10px;
+  }
+}
+
+/* =========================================
+                 Helpers
+========================================== */
+.hide {
+  display: none;
+}
+
+/* =========================================
+        Collapsible Accordion
+========================================== */
+
+// The main container element
+.Collapsible {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+//The content within the collaspable area
+.Collapsible__contentInner {
+  padding: 10px;
+  border: 1px solid rgb(119, 172, 240);
+  border-top: 0;
+
+  .Collapsible__trigger {
+    background: orangered !important;
+    margin-top: 15px;
+  }
+
+  p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable area
+.Collapsible__trigger {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: grey;
+  position: relative;
+  // border: 1px solid white;
+  padding: 10px;
+  background: #22475c;
+  color: white;
+  cursor: pointer;
+
+  &:after {
+    font-family: "FontAwesome";
+    content: "\f107";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: block;
+    transition: transform 300ms;
+  }
+
+  &.is-open {
+    &:after {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    background-color: grey;
+  }
+}
