@@ -42,9 +42,11 @@ class App extends Component {
     const from = e.target.elements.from.value;
     const to = e.target.elements.to.value;
 
+    // Handling date
     let date = e.target.elements.date.value.split("/").join(""); // 16 02 2019
     date = date.replace(/(\d{2})(\d{2})(\d{4})/, "$3$2$1"); // 2019 02 16
 
+    // Handling time
     let time = e.target.elements.time.value.split(":").join("");
     if (time.length === 6) {
       time = time.slice(0, 3); // take the first 3 characters to get rid of am or pm
@@ -57,33 +59,16 @@ class App extends Component {
     const journeyPreference = e.target.elements.journeyPreference.value;
 
     // Handling checkboxes
-    const tubeVal = e.target.elements.tube.checked === true ? "tube" : "";
-    const busVal = e.target.elements.bus.checked === true ? "bus" : "";
-    const overgroundVal =
-      e.target.elements.overground.checked === true ? "overground" : "";
+    // We first make an array with every elements name you wish to take,
+    // filter only the ones that are checked,
+    // and compose our final strings with all the remaining names put together with a , using join.
+    let mode = ["tube", "bus", "overground"].filter(
+      key => e.target.elements[key].checked
+    );
+    // joining remaining array members via ,
+    mode = mode.join(",");
 
-    let mode = "";
-    if (tubeVal && !busVal && !overgroundVal) {
-      mode = tubeVal;
-    }
-    if (!tubeVal && busVal && !overgroundVal) {
-      mode = busVal;
-    }
-    if (!tubeVal && !busVal && overgroundVal) {
-      mode = overgroundVal;
-    }
-    if (tubeVal && busVal && !overgroundVal) {
-      mode = tubeVal + "," + busVal;
-    }
-    if (tubeVal && !busVal && overgroundVal) {
-      mode = tubeVal + "," + overgroundVal;
-    }
-    if (!tubeVal && busVal && overgroundVal) {
-      mode = busVal + "," + overgroundVal;
-    }
-    if (tubeVal && busVal && overgroundVal) {
-      mode = tubeVal + "," + busVal + "," + overgroundVal;
-    }
+    // console.log("This is mode:", mode);
 
     console.log("Key From Env is: ", process.env.REACT_APP_TFL_API_KEY);
     console.log("Key From state: ", this.state.api_key);
