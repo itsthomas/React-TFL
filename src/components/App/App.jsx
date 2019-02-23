@@ -17,6 +17,7 @@ class App extends Component {
     error: ""
   };
 
+  // gets fired up by Alert component. api_key comes from Alert component
   saveAPIKey = api_key => {
     this.setState({
       api_key: api_key
@@ -25,6 +26,7 @@ class App extends Component {
     console.log("Key From Input is: ", api_key);
   };
 
+  // get fired up by API request. If isLoading is true, a loader animation shows
   handleIsLoading = () => {
     this.setState({
       isLoading: true,
@@ -32,6 +34,7 @@ class App extends Component {
     });
   };
 
+  // The API request - e comes from TflForm component. api_key from Alert component
   getData = async (e, api_key) => {
     // console.log("This is e: ", e);
     e.preventDefault();
