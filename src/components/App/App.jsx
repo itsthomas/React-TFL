@@ -174,12 +174,7 @@ class App extends Component {
                   api_key={api_key => this.state.api_key(api_key)}
                 />
               )}
-              {this.state.api_key && (
-                <TflForm
-                  // onHandleIsLoading={this.handleIsLoading}
-                  formSubmit={this.getData}
-                />
-              )}
+              {this.state.api_key && <TflForm formSubmit={this.getData} />}
             </div>
 
             <div className="col-md-8 result-container">

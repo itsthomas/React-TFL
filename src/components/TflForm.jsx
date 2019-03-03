@@ -110,7 +110,7 @@ class TflForm extends Component {
           <button
             type="submit"
             className="btn btn-primary"
-            onClick={this.onHandleIsLoading}
+            // onClick={this.onHandleIsLoading}
           >
             Plan my journey
           </button>
